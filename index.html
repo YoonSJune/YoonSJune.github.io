@@ -297,7 +297,11 @@
           'Content-Type': 'application/json',
           ...opts.headers
         }
-      }).then(r => r.ok ? r.json() : Promise.reject(r));
+      }).then(r => {
+        if (!r.ok) return Promise.reject(r);
+        // 204 또는 빈 본문(return=minimal POST)이면 JSON 파싱을 건너뛴다
+        return r.status === 204 ? null : r.text().then(t => t ? JSON.parse(t) : null);
+      });
     }
 
     function formatDate(iso) {
