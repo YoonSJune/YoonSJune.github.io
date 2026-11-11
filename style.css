@@ -197,3 +197,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-
   .gb-inputs input#gb-name { flex: 1 1 100%; }
   .gb-inputs button { width: 100%; }
 }
+
+/* 한국어 버전: About/Notes 숨김 */
+.lang-ko .toggle, .lang-ko .drawer, .lang-ko .row.open .drawer { display: none; }

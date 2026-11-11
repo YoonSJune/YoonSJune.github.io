@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="./style.css?v=4">
+  <link rel="stylesheet" href="./style.css?v=5">
 </head>
 <body>
   <div class="page-shell">
@@ -17,35 +17,36 @@
     <!-- 상단 프로필 -->
     <header class="site-intro">
       <div class="name-row">
-        <h1 class="author-title">SeokJune Yoon</h1>
+        <h1 class="author-title" data-ko="윤석준">SeokJune Yoon</h1>
         <nav class="top-nav" aria-label="주요 메뉴">
           <a href="#" class="active">Home</a>
+          <a href="?lang=ko" id="lang-toggle" class="lang-toggle" hreflang="ko">KR</a>
           <a href="https://github.com/YoonSJune">GitHub ↗</a>
         </nav>
       </div>
 
       <div class="ledger">
         <div class="ledger-row primary">
-          <span class="inst">Kookmin University</span>
-          <span class="role">Management Information Systems <span class="muted-tag">(Double Major in Economics)</span></span>
+          <span class="inst" data-ko="국민대학교">Kookmin University</span>
+          <span class="role" data-ko='경영정보학부 <span class="muted-tag">(경제학 복수전공)</span>'>Management Information Systems <span class="muted-tag">(Double Major in Economics)</span></span>
         </div>
         <div class="ledger-row secondary">
-          <span class="inst">Graduation</span>
-          <span class="role">Expected February 2027</span>
+          <span class="inst" data-ko="졸업">Graduation</span>
+          <span class="role" data-ko="2027년 2월 졸업 예정">Expected February 2027</span>
         </div>
         <div class="ledger-row secondary">
-          <span class="inst">Interests</span>
-          <span class="role">Economics · Finance · AI Literacy</span>
+          <span class="inst" data-ko="관심 분야">Interests</span>
+          <span class="role" data-ko="경제 · 금융 · AI 리터러시">Economics · Finance · AI Literacy</span>
         </div>
         <div class="ledger-row secondary">
-          <span class="inst">Contact</span>
+          <span class="inst" data-ko="연락처">Contact</span>
           <span class="role"><a href="mailto:yoonsj1109@kookmin.ac.kr">yoonsj1109@kookmin.ac.kr</a></span>
         </div>
       </div>
 
       <div class="bio">
-        <p>Through my study in MIS, I am learning how to understand business and economic phenomena through data.</p>
-        <p class="featured">I built and published a browser <a href="https://yoonsjune.github.io/eureka/">Mini Game ↗</a>.</p>
+        <p data-ko="경영정보학을 공부하며 비즈니스와 경제 현상을 데이터로 이해하는 방법을 배우고 있습니다.">Through my study in MIS, I am learning how to understand business and economic phenomena through data.</p>
+        <p class="featured" data-ko='브라우저에서 바로 즐길 수 있는 <a href="https://yoonsjune.github.io/eureka/">미니 게임 ↗</a>을 직접 만들어 공개했습니다.'>I built and published a browser <a href="https://yoonsjune.github.io/eureka/">Mini Game ↗</a>.</p>
       </div>
 
       <nav class="section-nav" aria-label="섹션">
@@ -107,9 +108,9 @@
           <span class="section-meta">3 Items</span>
         </div>
         <div class="table-head grid">
-          <div>Title &amp; Materials</div>
-          <div>Data</div>
-          <div>Status</div>
+          <div data-ko="프로젝트명">Title &amp; Materials</div>
+          <div data-ko="데이터">Data</div>
+          <div data-ko="상태">Status</div>
         </div>
 
         <article class="row">
@@ -149,21 +150,21 @@
           <span class="section-meta">1 Item</span>
         </div>
         <div class="table-head grid">
-          <div>Title &amp; Materials</div>
-          <div>Issued By</div>
-          <div>Date Passed</div>
+          <div data-ko="자격증">Title &amp; Materials</div>
+          <div data-ko="발급 기관">Issued By</div>
+          <div data-ko="합격일">Date Passed</div>
         </div>
 
         <article class="row">
           <div class="row-main grid">
             <div>
-              <div class="title">Certified Investment Manager</div>
+              <div class="title" data-ko="투자자산운용사">Certified Investment Manager</div>
               <div class="links">
                 <button type="button" class="toggle">[About ▾]</button>
               </div>
             </div>
-            <div class="sub">Korea Financial Investment Association (KOFIA)</div>
-            <div class="venue">May 21, 2026</div>
+            <div class="sub" data-ko="한국금융투자협회">Korea Financial Investment Association (KOFIA)</div>
+            <div class="venue" data-ko="2026년 5월 21일">May 21, 2026</div>
           </div>
           <div class="drawer">
             <p>Certified Investment Manager ('투자자산운용사') is a Korean professional qualification for managing investment assets such as funds, trusts, and discretionary accounts. It is administered by the Korea Financial Investment Association ('한국금융투자협회'). I passed the 45th examination on May 21, 2026.</p>
@@ -251,6 +252,32 @@
   </div>
 
   <script>
+    // ---------- 한국어 버전 (KR 버튼, 주소 ?lang=ko) ----------
+    // 번역 추가 방법: 바꿀 태그에 data-ko="한국어 문구"를 붙이면 끝.
+    // 02 · In Progress의 상태 칸은 아래 STATUS_KO 표로 자동 번역되므로 영어로만 적으면 됨.
+    // 한국어 화면에서는 [About ▾], [Notes ▾]와 펼침 내용이 숨겨짐 (style.css의 .lang-ko).
+    const STATUS_KO = {
+      'In Development': '개발 중',
+      'Planned': '개발 예정',
+      'Completed': '완료'
+    };
+    if (new URLSearchParams(location.search).get('lang') === 'ko') {
+      document.documentElement.lang = 'ko';
+      document.body.classList.add('lang-ko');
+      document.title = '윤석준';
+      document.querySelectorAll('[data-ko]').forEach(function (el) {
+        el.innerHTML = el.getAttribute('data-ko');
+      });
+      document.querySelectorAll('#next .venue').forEach(function (el) {
+        const key = el.textContent.trim();
+        if (STATUS_KO[key]) el.textContent = STATUS_KO[key];
+      });
+      const lt = document.getElementById('lang-toggle');
+      lt.textContent = 'EN';
+      lt.href = location.pathname;
+      lt.hreflang = 'en';
+    }
+
     document.querySelectorAll('.toggle').forEach(function (btn) {
       btn.addEventListener('click', function () {
         btn.closest('.row').classList.toggle('open');
