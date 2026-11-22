@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="./style.css?v=6">
+  <link rel="stylesheet" href="./style.css?v=7">
 </head>
 <body>
   <div class="page-shell">
@@ -152,27 +152,27 @@
         </div>
         <div class="table-head grid">
           <div data-ko="학교">Institution</div>
-          <div data-ko="전공">Program</div>
+          <div data-ko="전공">Major</div>
           <div data-ko="기간">Period</div>
         </div>
 
         <article class="row">
           <div class="row-main grid">
             <div>
-              <div class="title" data-ko="한국과학기술원 (KAIST)">KAIST</div>
+              <div class="title" data-ko="국민대학교">Kookmin University</div>
             </div>
-            <div class="sub" data-ko="경영공학 석사 · 경영대학">Management Engineering (M.S.) · College of Business</div>
-            <div class="venue">2027.03 ~</div>
+            <div class="sub" data-ko="경영정보학 · 경제학">Management Information Systems · Economics</div>
+            <div class="venue">2020.03 ~ 2027.02</div>
           </div>
         </article>
 
         <article class="row">
           <div class="row-main grid">
             <div>
-              <div class="title" data-ko="국민대학교">Kookmin University</div>
+              <div class="title" data-ko="한국과학기술원 (KAIST)">Korea Advanced Institute of Science and Technology</div>
             </div>
-            <div class="sub" data-ko="경영정보학부 · 경제학 복수전공">Management Information Systems · Double Major in Economics</div>
-            <div class="venue">2020.03 ~ 2027.02</div>
+            <div class="sub" data-ko="경영공학 석사">Management Engineering (M.S.)</div>
+            <div class="venue">2027.03 ~</div>
           </div>
         </article>
       </section>
@@ -266,18 +266,17 @@
           <span class="section-meta" id="gb-count">— Messages</span>
         </div>
 
-        <p class="gb-guide" data-ko="이름과 메시지를 남기면 바로 저장되고, 새로고침 후에도 남아 있습니다. 개인정보나 비속어는 삼가 주세요.">Leave your name and a message — it saves instantly and stays after refresh. Please avoid personal information and offensive language.</p>
-
         <form id="gb-form" class="gb-form" autocomplete="off">
           <div class="gb-inputs">
             <input id="gb-name" type="text" placeholder="Name" maxlength="30" required aria-label="Your name">
-            <input id="gb-msg" type="text" placeholder="Leave a message" maxlength="200" required aria-label="Your message">
+            <div class="gb-msg-wrap">
+              <input id="gb-msg" type="text" placeholder="Leave a message" maxlength="200" required aria-label="Your message">
+              <span id="gb-count-chars" class="gb-count-chars">0 / 200</span>
+            </div>
             <button type="submit" id="gb-submit">Send</button>
           </div>
-          <div class="gb-meta">
-            <span id="gb-status" class="gb-status" aria-live="polite"></span>
-            <span id="gb-count-chars" class="gb-count-chars">0 / 200</span>
-          </div>
+          <p class="gb-guide" data-ko="이름과 메시지를 남기면 바로 저장되고, 새로고침 후에도 남아 있습니다. 개인정보나 비속어는 삼가 주세요.">Leave your name and a message — it saves instantly and stays after refresh. Please avoid personal information and offensive language.</p>
+          <p id="gb-status" class="gb-status" aria-live="polite"></p>
         </form>
 
         <div id="gb-list" class="gb-list"></div>
