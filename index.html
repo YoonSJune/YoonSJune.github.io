@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="./style.css?v=5">
+  <link rel="stylesheet" href="./style.css?v=6">
 </head>
 <body>
   <div class="page-shell">
@@ -36,7 +36,7 @@
         </div>
         <div class="ledger-row secondary">
           <span class="inst" data-ko="관심 분야">Interests</span>
-          <span class="role" data-ko="경제 · 금융 · AI 리터러시">Economics · Finance · AI Literacy</span>
+          <span class="role" data-ko="경제 · 금융 · AI 리터러시 · 행동과학">Economics · Finance · AI Literacy · Behavioral Sciences</span>
         </div>
         <div class="ledger-row secondary">
           <span class="inst" data-ko="연락처">Contact</span>
@@ -52,9 +52,10 @@
       <nav class="section-nav" aria-label="섹션">
         <a href="#projects"><span class="num">01</span>Projects</a>
         <a href="#next"><span class="num">02</span>In Progress</a>
-        <a href="#certification"><span class="num">03</span>Certification</a>
-        <a href="#reading"><span class="num">04</span>Reading</a>
-        <a href="#guestbook"><span class="num">05</span>Guestbook</a>
+        <a href="#education"><span class="num">03</span>Education</a>
+        <a href="#certification"><span class="num">04</span>Certification</a>
+        <a href="#reading"><span class="num">05</span>Reading</a>
+        <a href="#guestbook"><span class="num">06</span>Guestbook</a>
       </nav>
     </header>
 
@@ -144,9 +145,41 @@
         </article>
       </section>
 
+      <section class="section" id="education">
+        <div class="section-head">
+          <h2 class="section-label">03 · Education</h2>
+          <span class="section-meta">2 Items</span>
+        </div>
+        <div class="table-head grid">
+          <div data-ko="학교">Institution</div>
+          <div data-ko="전공">Program</div>
+          <div data-ko="기간">Period</div>
+        </div>
+
+        <article class="row">
+          <div class="row-main grid">
+            <div>
+              <div class="title" data-ko="한국과학기술원 (KAIST)">KAIST</div>
+            </div>
+            <div class="sub" data-ko="경영공학 석사 · 경영대학">Management Engineering (M.S.) · College of Business</div>
+            <div class="venue">2027.03 ~</div>
+          </div>
+        </article>
+
+        <article class="row">
+          <div class="row-main grid">
+            <div>
+              <div class="title" data-ko="국민대학교">Kookmin University</div>
+            </div>
+            <div class="sub" data-ko="경영정보학부 · 경제학 복수전공">Management Information Systems · Double Major in Economics</div>
+            <div class="venue">2020.03 ~ 2027.02</div>
+          </div>
+        </article>
+      </section>
+
       <section class="section" id="certification">
         <div class="section-head">
-          <h2 class="section-label">03 · Certification</h2>
+          <h2 class="section-label">04 · Certification</h2>
           <span class="section-meta">1 Item</span>
         </div>
         <div class="table-head grid">
@@ -174,7 +207,7 @@
 
       <section class="section" id="reading">
         <div class="section-head">
-          <h2 class="section-label">04 · Reading</h2>
+          <h2 class="section-label">05 · Reading</h2>
           <span class="section-meta">0 Books</span>
         </div>
         <div class="table-head grid">
@@ -229,9 +262,11 @@
 
       <section class="section" id="guestbook">
         <div class="section-head">
-          <h2 class="section-label">05 · Guestbook</h2>
+          <h2 class="section-label">06 · Guestbook</h2>
           <span class="section-meta" id="gb-count">— Messages</span>
         </div>
+
+        <p class="gb-guide" data-ko="이름과 메시지를 남기면 바로 저장되고, 새로고침 후에도 남아 있습니다. 개인정보나 비속어는 삼가 주세요.">Leave your name and a message — it saves instantly and stays after refresh. Please avoid personal information and offensive language.</p>
 
         <form id="gb-form" class="gb-form" autocomplete="off">
           <div class="gb-inputs">
@@ -239,7 +274,10 @@
             <input id="gb-msg" type="text" placeholder="Leave a message" maxlength="200" required aria-label="Your message">
             <button type="submit" id="gb-submit">Send</button>
           </div>
-          <p id="gb-status" class="gb-status" aria-live="polite"></p>
+          <div class="gb-meta">
+            <span id="gb-status" class="gb-status" aria-live="polite"></span>
+            <span id="gb-count-chars" class="gb-count-chars">0 / 200</span>
+          </div>
         </form>
 
         <div id="gb-list" class="gb-list"></div>
@@ -343,6 +381,13 @@
         });
     }
 
+    // 메시지 글자 수 실시간 표시
+    const gbMsgInput = document.getElementById('gb-msg');
+    const gbCharCount = document.getElementById('gb-count-chars');
+    gbMsgInput.addEventListener('input', function () {
+      gbCharCount.textContent = `${gbMsgInput.value.length} / 200`;
+    });
+
     document.getElementById('gb-form').addEventListener('submit', function (e) {
       e.preventDefault();
       const name = document.getElementById('gb-name').value.trim();
@@ -362,6 +407,7 @@
           status.textContent = 'Message sent!';
           document.getElementById('gb-name').value = '';
           document.getElementById('gb-msg').value = '';
+          gbCharCount.textContent = '0 / 200';
           loadMessages();
           setTimeout(() => { status.textContent = ''; }, 3000);
         })
