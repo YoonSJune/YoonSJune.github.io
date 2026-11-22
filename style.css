@@ -171,6 +171,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-
 .gb-inputs button:hover { opacity: 0.75; }
 .gb-inputs button:disabled { opacity: 0.4; cursor: not-allowed; }
 
+.venue-note {
+  display: block; font-family: var(--mono); font-size: 0.66rem;
+  color: var(--muted); margin-top: 0.15rem;
+}
+
 .gb-msg-wrap { position: relative; flex: 1; min-width: 0; display: flex; }
 .gb-msg-wrap input { flex: 1; min-width: 0; padding: 0.45rem 3.6rem 0.45rem 0.65rem; }
 .gb-count-chars {
